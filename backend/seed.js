@@ -51,7 +51,7 @@ const seedData = async () => {
     console.log(' - Admin:   admin@ocms.com   / Admin@12345');
     console.log(' - Student: student@ocms.com / Student@12345');
 
-    console.log('Creating sample courses...');
+    console.log('Creating sample courses with lectures...');
     const courses = await Course.insertMany([
       {
         title: 'Full-Stack Web Development Bootcamp (MERN)',
@@ -65,6 +65,12 @@ const seedData = async () => {
         featured: true,
         rating: 4.9,
         enrolledCount: 1420,
+        lectures: [
+          { title: '1. Semantic HTML & Modern Document Structure', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins' },
+          { title: '2. CSS Flexbox & Responsive Grids Deep Dive', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '35 mins' },
+          { title: '3. Promises, Async/Await, and Fetch API', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '40 mins' },
+          { title: '4. Express Routing & Middleware Architecture', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '50 mins' }
+        ],
         syllabus: [
           {
             week: 1,
@@ -84,24 +90,6 @@ const seedData = async () => {
               { title: 'ES Modules and Destructuring', duration: '25 mins' },
             ],
           },
-          {
-            week: 3,
-            title: 'React Fundamentals, Hooks & State Management',
-            description: 'Components, JSX, useEffect, Context API, and custom hooks.',
-            lessons: [
-              { title: 'Building Components with React Hooks', duration: '45 mins' },
-              { title: 'Global State Management with Context API', duration: '30 mins' },
-            ],
-          },
-          {
-            week: 4,
-            title: 'Node.js, Express REST APIs & MongoDB Mongoose',
-            description: 'Server architecture, routes, middleware, Mongoose models, and JWT security.',
-            lessons: [
-              { title: 'Express Routing & Middleware Architecture', duration: '50 mins' },
-              { title: 'Connecting MongoDB Atlas & Mongoose Schemas', duration: '45 mins' },
-            ],
-          },
         ],
       },
       {
@@ -116,30 +104,16 @@ const seedData = async () => {
         featured: true,
         rating: 4.8,
         enrolledCount: 980,
+        lectures: [
+          { title: '1. NumPy Arrays and Vectorized Computation', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins' },
+          { title: '2. Data Cleaning and Exploratory Data Analysis', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '45 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'Python Crash Course & Numerical Computing with NumPy',
             description: 'Matrix computations, indexing, and vector operations.',
-            lessons: [
-              { title: 'NumPy Arrays and Vectorized Computation', duration: '30 mins' },
-            ],
-          },
-          {
-            week: 2,
-            title: 'Data Wrangling and Analysis with Pandas',
-            description: 'Series, DataFrames, group by, handling missing values, and data merges.',
-            lessons: [
-              { title: 'Data Cleaning and Exploratory Data Analysis', duration: '45 mins' },
-            ],
-          },
-          {
-            week: 3,
-            title: 'Supervised Learning with Scikit-Learn',
-            description: 'Linear Regression, Logistic Classification, and Decision Trees.',
-            lessons: [
-              { title: 'Model Evaluation and Cross-Validation', duration: '50 mins' },
-            ],
+            lessons: [{ title: 'NumPy Arrays and Vectorized Computation', duration: '30 mins' }],
           },
         ],
       },
@@ -155,14 +129,15 @@ const seedData = async () => {
         featured: true,
         rating: 4.9,
         enrolledCount: 750,
+        lectures: [
+          { title: '1. Deep dive into React Server Components', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'Next.js App Router & Server Components',
             description: 'Client vs Server Components and high-speed streaming architecture.',
-            lessons: [
-              { title: 'Deep dive into React Server Components', duration: '30 mins' },
-            ],
+            lessons: [{ title: 'Deep dive into React Server Components', duration: '30 mins' }],
           },
         ],
       },
@@ -178,14 +153,15 @@ const seedData = async () => {
         featured: false,
         rating: 4.85,
         enrolledCount: 620,
+        lectures: [
+          { title: '1. Overview of AWS Global Cloud Infrastructure', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'AWS Core Fundamentals & Global Infrastructure',
             description: 'Regions, Availability Zones, and Edge Locations.',
-            lessons: [
-              { title: 'Overview of AWS Global Cloud Infrastructure', duration: '25 mins' },
-            ],
+            lessons: [{ title: 'Overview of AWS Global Cloud Infrastructure', duration: '25 mins' }],
           },
         ],
       },
@@ -201,14 +177,15 @@ const seedData = async () => {
         featured: true,
         rating: 4.75,
         enrolledCount: 510,
+        lectures: [
+          { title: '1. User Research & Journey Mapping', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'Design Thinking & Information Architecture',
             description: 'User personas, journey mapping, and wireframes.',
-            lessons: [
-              { title: 'User Research & Journey Mapping', duration: '30 mins' },
-            ],
+            lessons: [{ title: 'User Research & Journey Mapping', duration: '30 mins' }],
           },
         ],
       },
@@ -224,14 +201,15 @@ const seedData = async () => {
         featured: false,
         rating: 4.88,
         enrolledCount: 430,
+        lectures: [
+          { title: '1. Packet Sniffing and Port Scanning Ethics', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '35 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'Network Security & Traffic Analysis',
             description: 'Wireshark, TCP/IP handshake, and packet analysis.',
-            lessons: [
-              { title: 'Packet Sniffing and Port Scanning Ethics', duration: '35 mins' },
-            ],
+            lessons: [{ title: 'Packet Sniffing and Port Scanning Ethics', duration: '35 mins' }],
           },
         ],
       },
@@ -247,14 +225,15 @@ const seedData = async () => {
         featured: false,
         rating: 4.7,
         enrolledCount: 390,
+        lectures: [
+          { title: '1. Building your first responsive Flutter screen', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '40 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'Dart Language Essentials & Flutter Widget Tree',
             description: 'Stateless vs Stateful widgets, layout widgets, and styling.',
-            lessons: [
-              { title: 'Building your first responsive Flutter screen', duration: '40 mins' },
-            ],
+            lessons: [{ title: 'Building your first responsive Flutter screen', duration: '40 mins' }],
           },
         ],
       },
@@ -270,14 +249,15 @@ const seedData = async () => {
         featured: false,
         rating: 4.92,
         enrolledCount: 340,
+        lectures: [
+          { title: '1. Containerizing Node.js and React Applications', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '45 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'Containerization with Docker & Multi-stage Builds',
             description: 'Dockerfile best practices, images, volumes, and networking.',
-            lessons: [
-              { title: 'Containerizing Node.js and React Applications', duration: '45 mins' },
-            ],
+            lessons: [{ title: 'Containerizing Node.js and React Applications', duration: '45 mins' }],
           },
         ],
       },
@@ -293,6 +273,11 @@ const seedData = async () => {
         featured: true,
         rating: 4.9,
         enrolledCount: 2150,
+        lectures: [
+          { title: '1. Installing Python & VS Code Integration', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '15 mins' },
+          { title: '2. Variables, Strings, and Numbers', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '20 mins' },
+          { title: '3. Control Flow and Conditional Statements', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins' }
+        ],
         syllabus: [
           {
             week: 1,
@@ -301,15 +286,6 @@ const seedData = async () => {
             lessons: [
               { title: 'Installing Python & VS Code Integration', duration: '15 mins' },
               { title: 'Variables, Strings, and Numbers', duration: '20 mins' },
-            ],
-          },
-          {
-            week: 2,
-            title: 'Conditionals, Boolean Logic & Loops',
-            description: 'If-else branching, while loops, and for loops.',
-            lessons: [
-              { title: 'Control Flow and Conditional Statements', duration: '25 mins' },
-              { title: 'Iterating with For and While Loops', duration: '30 mins' },
             ],
           },
         ],
@@ -326,6 +302,10 @@ const seedData = async () => {
         featured: true,
         rating: 4.85,
         enrolledCount: 1890,
+        lectures: [
+          { title: '1. Variables, Primitive Types & Type Coercion', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins' },
+          { title: '2. Conditional Branching and Ternary Operators', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '20 mins' }
+        ],
         syllabus: [
           {
             week: 1,
@@ -350,6 +330,10 @@ const seedData = async () => {
         featured: true,
         rating: 4.91,
         enrolledCount: 1670,
+        lectures: [
+          { title: '1. Compiling Your First C++ Program', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins' },
+          { title: '2. Data Types, Operators & Control Flow', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '25 mins' }
+        ],
         syllabus: [
           {
             week: 1,
@@ -374,6 +358,10 @@ const seedData = async () => {
         featured: true,
         rating: 4.88,
         enrolledCount: 1520,
+        lectures: [
+          { title: '1. How Java Works: From Bytecode to JVM', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins' },
+          { title: '2. Control Statements and Java Methods', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '25 mins' }
+        ],
         syllabus: [
           {
             week: 1,
@@ -398,6 +386,10 @@ const seedData = async () => {
         featured: false,
         rating: 4.86,
         enrolledCount: 1240,
+        lectures: [
+          { title: '1. Introduction to Go Toolchain and Slices', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins' },
+          { title: '2. Structs, Methods and Interfaces in Go', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '30 mins' }
+        ],
         syllabus: [
           {
             week: 1,
@@ -422,14 +414,15 @@ const seedData = async () => {
         featured: true,
         rating: 4.94,
         enrolledCount: 880,
+        lectures: [
+          { title: '1. Ownership Rules and Memory Guarantees', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '35 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'The Rust Philosophy: Ownership & Borrowing',
             description: 'Stack vs heap, move semantics, mutable borrows, and references.',
-            lessons: [
-              { title: 'Ownership Rules and Memory Guarantees', duration: '35 mins' },
-            ],
+            lessons: [{ title: 'Ownership Rules and Memory Guarantees', duration: '35 mins' }],
           },
         ],
       },
@@ -445,14 +438,15 @@ const seedData = async () => {
         featured: false,
         rating: 4.89,
         enrolledCount: 790,
+        lectures: [
+          { title: '1. Records, Pattern Matching & Nullable References', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'Modern C# Language Features & LINQ',
             description: 'Pattern matching, records, top-level statements, and LINQ queries.',
-            lessons: [
-              { title: 'Records, Pattern Matching & Nullable References', duration: '30 mins' },
-            ],
+            lessons: [{ title: 'Records, Pattern Matching & Nullable References', duration: '30 mins' }],
           },
         ],
       },
@@ -468,20 +462,21 @@ const seedData = async () => {
         featured: false,
         rating: 4.9,
         enrolledCount: 920,
+        lectures: [
+          { title: '1. Structural Subtyping & Interface Contracts', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins' }
+        ],
         syllabus: [
           {
             week: 1,
             title: 'Type Inference, Interfaces & Generics',
             description: 'Custom types, structural typing, and generic functions.',
-            lessons: [
-              { title: 'Structural Subtyping & Interface Contracts', duration: '25 mins' },
-            ],
+            lessons: [{ title: 'Structural Subtyping & Interface Contracts', duration: '25 mins' }],
           },
         ],
       },
     ]);
 
-    console.log(`Created ${courses.length} courses!`);
+    console.log(`Created ${courses.length} courses with full lecture curriculum!`);
 
     // Create an initial sample enrollment and simulated payment for studentUser
     const sampleCourse = courses[0];
@@ -506,7 +501,7 @@ const seedData = async () => {
       status: 'enrolled',
       progress: 45,
       completedLessons: [
-        { lessonTitle: 'Semantic HTML & Modern Document Structure' },
+        { lessonTitle: '1. Semantic HTML & Modern Document Structure' },
       ],
     });
 
