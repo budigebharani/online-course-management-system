@@ -15,7 +15,6 @@ const connectDB = async () => {
       const conn = await mongoose.connect(uri, {
         serverSelectionTimeoutMS: 5000,
       });
-
       isConnected = true;
       isInMemory = false;
       console.log(`✅ MongoDB Atlas Connected successfully: ${conn.connection.host}`);
@@ -25,7 +24,6 @@ const connectDB = async () => {
       console.warn('🔄 Falling back to built-in In-Memory Database store so the application runs with full functionality.');
     }
   }
-
   // Initialize In-Memory Data Store fallback
   await initInMemoryData();
   isConnected = true;
