@@ -2,11 +2,11 @@ import axios from 'axios';
 
 // Create Axios instance
 const axiosClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  baseURL: (import.meta.env.VITE_API_BASE_URL || 'https://online-course-management-system-backend-1lp3.onrender.com/api').replace(/\/+$/, '') + (import.meta.env.VITE_API_BASE_URL?.endsWith('/api') ? '' : '/api'),
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000,
+  timeout: 30000,
 });
 
 // Request Interceptor: Attach JWT Token if present
