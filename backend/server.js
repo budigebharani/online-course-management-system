@@ -23,6 +23,8 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:5000',
   'http://127.0.0.1:5000',
+  'https://online-course-management-system-tqu.vercel.app',
+  'https://online-course-management-system-tqui-rho4qsjeo-kanya10.vercel.app',
   process.env.CLIENT_URL,
 ].filter(Boolean);
 
