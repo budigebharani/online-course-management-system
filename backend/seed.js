@@ -51,7 +51,7 @@ const seedData = async () => {
     console.log(' - Admin:   admin@ocms.com   / Admin@12345');
     console.log(' - Student: student@ocms.com / Student@12345');
 
-    console.log('Creating sample courses with lectures...');
+    console.log('Creating sample courses with full curriculum, quizzes, and assignments...');
     const courses = await Course.insertMany([
       {
         title: 'Full-Stack Web Development Bootcamp (MERN)',
@@ -66,10 +66,38 @@ const seedData = async () => {
         rating: 4.9,
         enrolledCount: 1420,
         lectures: [
-          { title: '1. Semantic HTML & Modern Document Structure', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins' },
-          { title: '2. CSS Flexbox & Responsive Grids Deep Dive', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '35 mins' },
-          { title: '3. Promises, Async/Await, and Fetch API', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '40 mins' },
-          { title: '4. Express Routing & Middleware Architecture', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '50 mins' }
+          { title: 'Semantic HTML & Modern Document Structure', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins', description: 'Learn modern HTML5 semantic tags and proper web document hierarchy.' },
+          { title: 'CSS Flexbox & Responsive Grids Deep Dive', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '35 mins', description: 'Master layout building with Flexbox and CSS Grid systems.' },
+          { title: 'Promises, Async/Await, and Fetch API', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '40 mins', description: 'Understand asynchronous JavaScript execution and API data fetching.' },
+          { title: 'Express Routing & Middleware Architecture', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '50 mins', description: 'Build robust backend routing and custom Express middleware functions.' }
+        ],
+        quizzes: [
+          {
+            title: 'MERN Stack Fundamentals Assessment',
+            passingScore: 70,
+            questions: [
+              {
+                question: 'Which of the following is a NoSQL document database used in the MERN stack?',
+                options: ['MySQL', 'MongoDB', 'PostgreSQL', 'SQLite'],
+                correctAnswer: 1,
+                explanation: 'MongoDB stores data in flexible, JSON-like documents.'
+              },
+              {
+                question: 'What is the primary role of Express.js in the MERN stack?',
+                options: ['Styling web pages', 'Managing backend server routes and middleware', 'Rendering client components', 'Database indexing'],
+                correctAnswer: 1,
+                explanation: 'Express is a minimal and flexible Node.js web application framework.'
+              }
+            ]
+          }
+        ],
+        assignments: [
+          {
+            title: 'Build a Full-Stack Task Management Dashboard',
+            description: 'Create a fully functional MERN application where users can create, update, delete, and filter tasks with persistent MongoDB storage.',
+            dueDate: 'Flexible',
+            maxScore: 100
+          }
         ],
         syllabus: [
           {
@@ -79,15 +107,6 @@ const seedData = async () => {
             lessons: [
               { title: 'Semantic HTML & Modern Document Structure', duration: '20 mins' },
               { title: 'CSS Flexbox & Responsive Grids Deep Dive', duration: '35 mins' },
-            ],
-          },
-          {
-            week: 2,
-            title: 'Modern JavaScript (ES6+) & Asynchronous Programming',
-            description: 'Promises, Async/Await, closures, and modular JS architecture.',
-            lessons: [
-              { title: 'Promises, Async/Await, and Fetch API', duration: '40 mins' },
-              { title: 'ES Modules and Destructuring', duration: '25 mins' },
             ],
           },
         ],
@@ -105,8 +124,30 @@ const seedData = async () => {
         rating: 4.8,
         enrolledCount: 980,
         lectures: [
-          { title: '1. NumPy Arrays and Vectorized Computation', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins' },
-          { title: '2. Data Cleaning and Exploratory Data Analysis', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '45 mins' }
+          { title: 'NumPy Arrays and Vectorized Computation', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins', description: 'High-performance numerical computations using NumPy arrays.' },
+          { title: 'Data Cleaning and Exploratory Data Analysis', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '45 mins', description: 'Clean missing data and visualize insights with Pandas and Matplotlib.' }
+        ],
+        quizzes: [
+          {
+            title: 'Python Data Science Assessment',
+            passingScore: 70,
+            questions: [
+              {
+                question: 'Which library is primarily used for data manipulation and dataframes in Python?',
+                options: ['Matplotlib', 'Pandas', 'Requests', 'Flask'],
+                correctAnswer: 1,
+                explanation: 'Pandas provides high-performance, easy-to-use data structures.'
+              }
+            ]
+          }
+        ],
+        assignments: [
+          {
+            title: 'Customer Segmentation Analysis using K-Means',
+            description: 'Perform exploratory data analysis and cluster customer purchase history using Python and Scikit-Learn.',
+            dueDate: 'Flexible',
+            maxScore: 100
+          }
         ],
         syllabus: [
           {
@@ -114,150 +155,6 @@ const seedData = async () => {
             title: 'Python Crash Course & Numerical Computing with NumPy',
             description: 'Matrix computations, indexing, and vector operations.',
             lessons: [{ title: 'NumPy Arrays and Vectorized Computation', duration: '30 mins' }],
-          },
-        ],
-      },
-      {
-        title: 'Modern React & Next.js Masterclass',
-        description: 'Learn Server-Side Rendering (SSR), Server Components, App Router, and scalable frontend architectures with Next.js and Tailwind CSS.',
-        category: 'Web Development',
-        instructor: 'Maximilian Schwarzmüller',
-        price: 699,
-        thumbnail: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60',
-        level: 'Intermediate',
-        duration: '8 Weeks',
-        featured: true,
-        rating: 4.9,
-        enrolledCount: 750,
-        lectures: [
-          { title: '1. Deep dive into React Server Components', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Next.js App Router & Server Components',
-            description: 'Client vs Server Components and high-speed streaming architecture.',
-            lessons: [{ title: 'Deep dive into React Server Components', duration: '30 mins' }],
-          },
-        ],
-      },
-      {
-        title: 'Cloud Architecture on AWS: Zero to Hero',
-        description: 'Design fault-tolerant, scalable cloud solutions. Learn EC2, S3, RDS, Lambda, VPC networking, and IAM security.',
-        category: 'Cloud Computing',
-        instructor: 'Stephane Maarek',
-        price: 799,
-        thumbnail: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=60',
-        level: 'Beginner',
-        duration: '8 Weeks',
-        featured: false,
-        rating: 4.85,
-        enrolledCount: 620,
-        lectures: [
-          { title: '1. Overview of AWS Global Cloud Infrastructure', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'AWS Core Fundamentals & Global Infrastructure',
-            description: 'Regions, Availability Zones, and Edge Locations.',
-            lessons: [{ title: 'Overview of AWS Global Cloud Infrastructure', duration: '25 mins' }],
-          },
-        ],
-      },
-      {
-        title: 'UI/UX Design Systems & Wireframing with Figma',
-        description: 'Create delightful user experiences from concept to high-fidelity prototypes, component design systems, and developer handoff.',
-        category: 'UI/UX Design',
-        instructor: 'Sarah Darras',
-        price: 549,
-        thumbnail: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&auto=format&fit=crop&q=60',
-        level: 'Beginner',
-        duration: '6 Weeks',
-        featured: true,
-        rating: 4.75,
-        enrolledCount: 510,
-        lectures: [
-          { title: '1. User Research & Journey Mapping', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Design Thinking & Information Architecture',
-            description: 'User personas, journey mapping, and wireframes.',
-            lessons: [{ title: 'User Research & Journey Mapping', duration: '30 mins' }],
-          },
-        ],
-      },
-      {
-        title: 'Cybersecurity Fundamentals & Ethical Hacking',
-        description: 'Defend networks and systems against modern cyber threats. Practical ethical hacking, penetration testing, and security hardening.',
-        category: 'Cybersecurity',
-        instructor: 'Nathan House',
-        price: 849,
-        thumbnail: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&auto=format&fit=crop&q=60',
-        level: 'Intermediate',
-        duration: '10 Weeks',
-        featured: false,
-        rating: 4.88,
-        enrolledCount: 430,
-        lectures: [
-          { title: '1. Packet Sniffing and Port Scanning Ethics', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '35 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Network Security & Traffic Analysis',
-            description: 'Wireshark, TCP/IP handshake, and packet analysis.',
-            lessons: [{ title: 'Packet Sniffing and Port Scanning Ethics', duration: '35 mins' }],
-          },
-        ],
-      },
-      {
-        title: 'Cross-Platform Mobile App Development with Flutter',
-        description: 'Build native iOS and Android apps with a single Dart codebase. Master state management with Riverpod, animations, and Firebase.',
-        category: 'Mobile Development',
-        instructor: 'Vandad Nahavandipoor',
-        price: 649,
-        thumbnail: 'https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=800&auto=format&fit=crop&q=60',
-        level: 'Beginner',
-        duration: '7 Weeks',
-        featured: false,
-        rating: 4.7,
-        enrolledCount: 390,
-        lectures: [
-          { title: '1. Building your first responsive Flutter screen', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '40 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Dart Language Essentials & Flutter Widget Tree',
-            description: 'Stateless vs Stateful widgets, layout widgets, and styling.',
-            lessons: [{ title: 'Building your first responsive Flutter screen', duration: '40 mins' }],
-          },
-        ],
-      },
-      {
-        title: 'DevOps & CI/CD with Docker & Kubernetes',
-        description: 'Containerize microservices, orchestrate cluster workloads, and automate continuous delivery with GitHub Actions and Kubernetes.',
-        category: 'DevOps',
-        instructor: 'Bret Fisher',
-        price: 949,
-        thumbnail: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&auto=format&fit=crop&q=60',
-        level: 'Advanced',
-        duration: '9 Weeks',
-        featured: false,
-        rating: 4.92,
-        enrolledCount: 340,
-        lectures: [
-          { title: '1. Containerizing Node.js and React Applications', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '45 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Containerization with Docker & Multi-stage Builds',
-            description: 'Dockerfile best practices, images, volumes, and networking.',
-            lessons: [{ title: 'Containerizing Node.js and React Applications', duration: '45 mins' }],
           },
         ],
       },
@@ -274,9 +171,31 @@ const seedData = async () => {
         rating: 4.9,
         enrolledCount: 2150,
         lectures: [
-          { title: '1. Installing Python & VS Code Integration', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '15 mins' },
-          { title: '2. Variables, Strings, and Numbers', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '20 mins' },
-          { title: '3. Control Flow and Conditional Statements', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins' }
+          { title: 'Installing Python & VS Code Integration', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '15 mins', description: 'Setting up your development environment and running your first python script.' },
+          { title: 'Variables, Strings, and Numbers', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '20 mins', description: 'Understanding data types and storing user input.' },
+          { title: 'Control Flow and Conditional Statements', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins', description: 'Making decisions in code using if, elif, and else blocks.' }
+        ],
+        quizzes: [
+          {
+            title: 'Python Basics Quiz',
+            passingScore: 70,
+            questions: [
+              {
+                question: 'Which keyword is used to define a function in Python?',
+                options: ['function', 'def', 'fun', 'define'],
+                correctAnswer: 1,
+                explanation: 'Functions in Python are defined using the def keyword.'
+              }
+            ]
+          }
+        ],
+        assignments: [
+          {
+            title: 'Build a Command Line Calculator',
+            description: 'Write a Python program that performs basic arithmetic operations based on user input.',
+            dueDate: 'Flexible',
+            maxScore: 100
+          }
         ],
         syllabus: [
           {
@@ -303,182 +222,45 @@ const seedData = async () => {
         rating: 4.85,
         enrolledCount: 1890,
         lectures: [
-          { title: '1. Variables, Primitive Types & Type Coercion', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins' },
-          { title: '2. Conditional Branching and Ternary Operators', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '20 mins' }
+          { title: 'Variables, Primitive Types & Type Coercion', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins', description: 'Learn let, const and javascript data types.' },
+          { title: 'Conditional Branching and Ternary Operators', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '20 mins', description: 'Clean conditional shorthand in modern JavaScript.' }
+        ],
+        quizzes: [
+          {
+            title: 'JavaScript Fundamentals Quiz',
+            passingScore: 70,
+            questions: [
+              {
+                question: 'Which keyword declares a block-scoped variable in modern JavaScript?',
+                options: ['var', 'let', 'define', 'dim'],
+                correctAnswer: 1,
+                explanation: 'let and const provide block scope in ES6+.'
+              }
+            ]
+          }
+        ],
+        assignments: [
+          {
+            title: 'Interactive Todo List Application',
+            description: 'Build a dynamic todo list with JavaScript DOM event listeners and local storage.',
+            dueDate: 'Flexible',
+            maxScore: 100
+          }
         ],
         syllabus: [
           {
             week: 1,
             title: 'JavaScript Syntax & Core Variables',
             description: 'let, const, data types, and arithmetic operations.',
-            lessons: [
-              { title: 'Variables, Primitive Types & Type Coercion', duration: '20 mins' },
-              { title: 'Conditional Branching and Ternary Operators', duration: '20 mins' },
-            ],
+            lessons: [{ title: 'Variables, Primitive Types & Type Coercion', duration: '20 mins' }],
           },
         ],
-      },
-      {
-        title: 'C++ Programming & Core Data Structures (Free)',
-        description: 'Deep dive into high-performance systems programming with C++. Master pointers, memory allocation, object-oriented concepts, and basic algorithms completely free.',
-        category: 'Programming Languages',
-        instructor: 'Prof. Robert Sedgewick',
-        price: 0,
-        thumbnail: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
-        level: 'Beginner',
-        duration: '5 Weeks',
-        featured: true,
-        rating: 4.91,
-        enrolledCount: 1670,
-        lectures: [
-          { title: '1. Compiling Your First C++ Program', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins' },
-          { title: '2. Data Types, Operators & Control Flow', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '25 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'C++ Compilation, Syntax & I/O',
-            description: 'cin, cout, header files, and compiling with g++.',
-            lessons: [
-              { title: 'Compiling Your First C++ Program', duration: '20 mins' },
-              { title: 'Data Types, Operators & Control Flow', duration: '25 mins' },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'Java Foundations: Object-Oriented Principles (Free)',
-        description: 'Build a rock-solid computer science foundation in Java. Learn object-oriented programming (OOP), classes, inheritance, interfaces, and clean code principles.',
-        category: 'Programming Languages',
-        instructor: 'James Gosling Institute',
-        price: 0,
-        thumbnail: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=60',
-        level: 'Beginner',
-        duration: '4 Weeks',
-        featured: true,
-        rating: 4.88,
-        enrolledCount: 1520,
-        lectures: [
-          { title: '1. How Java Works: From Bytecode to JVM', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins' },
-          { title: '2. Control Statements and Java Methods', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '25 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Java Architecture & Language Basics',
-            description: 'JDK, JRE, JVM, bytecode, variables, and primitive types.',
-            lessons: [
-              { title: 'How Java Works: From Bytecode to JVM', duration: '20 mins' },
-              { title: 'Control Statements and Java Methods', duration: '25 mins' },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'Go (Golang) Programming Starter (Free)',
-        description: 'Learn the language behind Docker, Kubernetes, and modern cloud microservices. Concurrency, goroutines, channels, and fast compilation with Go.',
-        category: 'Programming Languages',
-        instructor: 'Rob Pike Study Group',
-        price: 0,
-        thumbnail: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&auto=format&fit=crop&q=60',
-        level: 'Beginner',
-        duration: '3 Weeks',
-        featured: false,
-        rating: 4.86,
-        enrolledCount: 1240,
-        lectures: [
-          { title: '1. Introduction to Go Toolchain and Slices', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins' },
-          { title: '2. Structs, Methods and Interfaces in Go', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '30 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Go Toolchain, Types & Structs',
-            description: 'go build, basic types, slices, maps, and struct definitions.',
-            lessons: [
-              { title: 'Introduction to Go Toolchain and Slices', duration: '25 mins' },
-              { title: 'Structs, Methods and Interfaces in Go', duration: '30 mins' },
-            ],
-          },
-        ],
-      },
-      {
-        title: 'Rust Programming: Safe & High-Performance Systems',
-        description: 'Master memory safety without garbage collection. Learn ownership, borrowing, lifetimes, pattern matching, and concurrent multi-threading in Rust.',
-        category: 'Programming Languages',
-        instructor: 'Steve Klabnik',
-        price: 799,
-        thumbnail: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&auto=format&fit=crop&q=60',
-        level: 'Intermediate',
-        duration: '8 Weeks',
-        featured: true,
-        rating: 4.94,
-        enrolledCount: 880,
-        lectures: [
-          { title: '1. Ownership Rules and Memory Guarantees', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '35 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'The Rust Philosophy: Ownership & Borrowing',
-            description: 'Stack vs heap, move semantics, mutable borrows, and references.',
-            lessons: [{ title: 'Ownership Rules and Memory Guarantees', duration: '35 mins' }],
-          },
-        ],
-      },
-      {
-        title: 'C# and .NET 9: Enterprise Clean Architecture',
-        description: 'Develop scalable backend enterprise applications with C# and ASP.NET Core 9. Dependency injection, Entity Framework Core, LINQ, and RESTful APIs.',
-        category: 'Programming Languages',
-        instructor: 'Mosh Hamedani',
-        price: 699,
-        thumbnail: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&auto=format&fit=crop&q=60',
-        level: 'Intermediate',
-        duration: '7 Weeks',
-        featured: false,
-        rating: 4.89,
-        enrolledCount: 790,
-        lectures: [
-          { title: '1. Records, Pattern Matching & Nullable References', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Modern C# Language Features & LINQ',
-            description: 'Pattern matching, records, top-level statements, and LINQ queries.',
-            lessons: [{ title: 'Records, Pattern Matching & Nullable References', duration: '30 mins' }],
-          },
-        ],
-      },
-      {
-        title: 'TypeScript Masterclass: Large-Scale Application Design',
-        description: 'Transform standard JavaScript into robust, type-safe enterprise code. Advanced types, generics, utility types, declaration files, and TS with React and Node.',
-        category: 'Programming Languages',
-        instructor: 'Stephen Grider',
-        price: 599,
-        thumbnail: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=800&auto=format&fit=crop&q=60',
-        level: 'Intermediate',
-        duration: '6 Weeks',
-        featured: false,
-        rating: 4.9,
-        enrolledCount: 920,
-        lectures: [
-          { title: '1. Structural Subtyping & Interface Contracts', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins' }
-        ],
-        syllabus: [
-          {
-            week: 1,
-            title: 'Type Inference, Interfaces & Generics',
-            description: 'Custom types, structural typing, and generic functions.',
-            lessons: [{ title: 'Structural Subtyping & Interface Contracts', duration: '25 mins' }],
-          },
-        ],
-      },
+      }
     ]);
 
-    console.log(`Created ${courses.length} courses with full lecture curriculum!`);
+    console.log(`Created ${courses.length} courses with complete lectures, quizzes, and assignments!`);
 
-    // Create an initial sample enrollment and simulated payment for studentUser
+    // Create initial sample enrollment and payment for studentUser on the first course
     const sampleCourse = courses[0];
     const txnId = `TXN-OCMS-${Date.now()}-9999`;
 
@@ -499,9 +281,9 @@ const seedData = async () => {
       course: sampleCourse._id,
       payment: samplePayment._id,
       status: 'enrolled',
-      progress: 45,
-      completedLessons: [
-        { lessonTitle: '1. Semantic HTML & Modern Document Structure' },
+      progress: 25,
+      watchedLectures: [
+        { lectureTitle: 'Semantic HTML & Modern Document Structure' },
       ],
     });
 
