@@ -66,10 +66,10 @@ const seedData = async () => {
         rating: 4.9,
         enrolledCount: 1420,
         lectures: [
-          { title: 'Semantic HTML & Modern Document Structure', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins', description: 'Learn modern HTML5 semantic tags and proper web document hierarchy.' },
-          { title: 'CSS Flexbox & Responsive Grids Deep Dive', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '35 mins', description: 'Master layout building with Flexbox and CSS Grid systems.' },
-          { title: 'Promises, Async/Await, and Fetch API', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '40 mins', description: 'Understand asynchronous JavaScript execution and API data fetching.' },
-          { title: 'Express Routing & Middleware Architecture', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '50 mins', description: 'Build robust backend routing and custom Express middleware functions.' }
+          { title: 'Semantic HTML & Modern Document Structure', videoUrl: 'https://www.youtube.com/embed/qz0aGYrrlhU', duration: '20 mins', description: 'Learn modern HTML5 semantic tags and proper web document hierarchy.' },
+          { title: 'CSS Flexbox & Responsive Grids Deep Dive', videoUrl: 'https://www.youtube.com/embed/fYq5LeKG9Sg', duration: '35 mins', description: 'Master layout building with Flexbox and CSS Grid systems.' },
+          { title: 'Promises, Async/Await, and Fetch API', videoUrl: 'https://www.youtube.com/embed/PoRJizFvM7s', duration: '40 mins', description: 'Understand asynchronous JavaScript execution and API data fetching.' },
+          { title: 'Express Routing & Middleware Architecture', videoUrl: 'https://www.youtube.com/embed/l8WPWKvHdtw', duration: '50 mins', description: 'Build robust backend routing and custom Express middleware functions.' }
         ],
         quizzes: [
           {
@@ -124,8 +124,8 @@ const seedData = async () => {
         rating: 4.8,
         enrolledCount: 980,
         lectures: [
-          { title: 'NumPy Arrays and Vectorized Computation', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '30 mins', description: 'High-performance numerical computations using NumPy arrays.' },
-          { title: 'Data Cleaning and Exploratory Data Analysis', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '45 mins', description: 'Clean missing data and visualize insights with Pandas and Matplotlib.' }
+          { title: 'NumPy Arrays and Vectorized Computation', videoUrl: 'https://www.youtube.com/embed/GB9ByFAIAV0', duration: '30 mins', description: 'High-performance numerical computations using NumPy arrays.' },
+          { title: 'Data Cleaning and Exploratory Data Analysis', videoUrl: 'https://www.youtube.com/embed/r-uO3Swc_t0', duration: '45 mins', description: 'Clean missing data and visualize insights with Pandas and Matplotlib.' }
         ],
         quizzes: [
           {
@@ -171,9 +171,9 @@ const seedData = async () => {
         rating: 4.9,
         enrolledCount: 2150,
         lectures: [
-          { title: 'Installing Python & VS Code Integration', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '15 mins', description: 'Setting up your development environment and running your first python script.' },
+          { title: 'Installing Python & VS Code Integration', videoUrl: 'https://www.youtube.com/embed/YYXdXT2l-Gg', duration: '15 mins', description: 'Setting up your development environment and running your first python script.' },
           { title: 'Variables, Strings, and Numbers', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '20 mins', description: 'Understanding data types and storing user input.' },
-          { title: 'Control Flow and Conditional Statements', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '25 mins', description: 'Making decisions in code using if, elif, and else blocks.' }
+          { title: 'Control Flow and Conditional Statements', videoUrl: 'https://www.youtube.com/embed/PqFKRqpHrXw', duration: '25 mins', description: 'Making decisions in code using if, elif, and else blocks.' }
         ],
         quizzes: [
           {
@@ -222,8 +222,8 @@ const seedData = async () => {
         rating: 4.85,
         enrolledCount: 1890,
         lectures: [
-          { title: 'Variables, Primitive Types & Type Coercion', videoUrl: 'https://www.youtube.com/embed/rfscVS0vtbw', duration: '20 mins', description: 'Learn let, const and javascript data types.' },
-          { title: 'Conditional Branching and Ternary Operators', videoUrl: 'https://www.youtube.com/embed/k9TUPpGqYTo', duration: '20 mins', description: 'Clean conditional shorthand in modern JavaScript.' }
+          { title: 'Variables, Primitive Types & Type Coercion', videoUrl: 'https://www.youtube.com/embed/W6NZfCO5SIk', duration: '20 mins', description: 'Learn let, const and javascript data types.' },
+          { title: 'Conditional Branching and Ternary Operators', videoUrl: 'https://www.youtube.com/embed/IsG4Xd6LfiM', duration: '20 mins', description: 'Clean conditional shorthand in modern JavaScript.' }
         ],
         quizzes: [
           {
